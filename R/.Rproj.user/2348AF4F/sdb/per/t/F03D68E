@@ -1,0 +1,17 @@
+{
+    "contents" : "#!/usr/bin/env R\noldNames=as.character(system(\"ls ../*gct\",intern=TRUE))\ntrim <- function(filename) {substr(filename,4,nchar(filename))}\nnewNames <- as.character (lapply(oldNames,trim))\npairedNames <- data.frame(oldNames,newNames)\nfor (i in 1:nrow(pairedNames)) {\n  assign(as.character(pairedNames$newNames[i]),\n         read.table(as.character(pairedNames$oldNames[i]),\n                        sep=\"\\t\", header=TRUE, skip=2))\n}\n\n",
+    "created" : 1405497232779.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1381538060",
+    "id" : "F03D68E",
+    "lastKnownWriteTime" : 1405632650,
+    "path" : "~/Desktop/DREAM/R/make_data_frames_from_gct_files.R",
+    "project_path" : "make_data_frames_from_gct_files.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : true,
+    "type" : "r_source"
+}
