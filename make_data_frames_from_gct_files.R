@@ -1,6 +1,6 @@
 #!/usr/bin/env R
-oldNames=as.character(system("ls ../*gct",intern=TRUE))
-trim <- function(filename) {substr(filename,4,nchar(filename))}
+oldNames=as.character(system("ls *gct",intern=TRUE))
+trim <- function(filename) {substr(filename,0,nchar(filename))}
 newNames <- as.character (lapply(oldNames,trim))
 pairedNames <- data.frame(oldNames,newNames)
 for (i in 1:nrow(pairedNames)) {
