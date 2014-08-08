@@ -29,10 +29,10 @@ ex.so.desc <- intersect(so.desc, ex.desc)
 all.desc <- intersect(ex.so.desc, cn.so.desc)
 
 ## For when you need a list of gene names
-write.table(so.desc, file="~/DREAM/essential_genes.txt", sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
-write.table(cn.so.desc, file="~/DREAM/copynum_genes.txt", sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
-write.table(ex.so.desc, file="~/DREAM/express_genes.txt", sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
-write.table(all.desc, file="~/DREAM/all_genes.txt", sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+write.table(so.desc, file="~/GitHub/essentiality/DREAM/essential_genes.txt", sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+write.table(cn.so.desc, file="~/GitHub/essentiality/DREAM/copynum_genes.txt", sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+write.table(ex.so.desc, file="~/GitHub/essentiality/DREAM/express_genes.txt", sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+write.table(all.desc, file="~/GitHub/essentiality/DREAM/all_genes.txt", sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
 
 # Get all the values for these subsets
 essentiality.of.copynum <- essentiality[which(intersect(essentiality$Description, cn.so.desc)>0),]
