@@ -6,9 +6,9 @@
 # The gene names themselves, from the Description field, are written to text files
 # and the data frame is then subsetted (someone verify that this part works?)
 
-expressfile <- "~/DREAM/CCLE_expression_training.gct"
-copynumfile <- "~/DREAM/CCLE_copynumber_training.gct"
-essentialfile <- "~/DREAM/Achilles_v2.9_training.gct"
+expressfile <- "~/GitHub/essentiality/DREAM/CCLE_expression_training.gct"
+copynumfile <- "~/GitHub/essentiality/DREAM/CCLE_copynumber_training.gct"
+essentialfile <- "~/GitHub/essentiality/DREAM/Achilles_v2.9_training.gct"
 
 express <- read.delim(expressfile, skip=2, header=TRUE, stringsAsFactors=FALSE)
 copynum <- read.delim(copynumfile, skip=2, header=TRUE, stringsAsFactors=FALSE)
