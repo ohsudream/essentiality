@@ -1,4 +1,5 @@
 #Playing with DREAM 9 gene essentiality prediction data
+# pwew pwew
 
 CopyTrain <- read.table("CCLE_copynumber_training.gct", skip=2, header=T,
                         sep="\t")
