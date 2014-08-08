@@ -14,7 +14,12 @@ express <- read.delim(expressfile, skip=2, header=TRUE, stringsAsFactors=FALSE)
 copynum <- read.delim(copynumfile, skip=2, header=TRUE, stringsAsFactors=FALSE)
 essentiality <- read.delim(essentialfile, skip=2, header=TRUE, stringsAsFactors=FALSE)
 
-# deal with NaN genes in expression set
+# check boxplot of expression and copy number
+# These look pretty normalized
+boxplot(express[,3:47])
+boxplot(copynum[,3:47])
+
+# deal with NaN genes in expression set (298 of these)
 express <- express[which(express$Description!="NaN"),]
 
 ex.desc <- express$Description
@@ -25,7 +30,7 @@ so.desc <- essentiality$Description
 cn.so.desc <- intersect(so.desc, cn.desc)
 # Overlap between expression and essentiality
 ex.so.desc <- intersect(so.desc, ex.desc)
-# Genes in all 3
+# Genes in all 3 there are 12,951 of them
 all.desc <- intersect(ex.so.desc, cn.so.desc)
 
 ## For when you need a list of gene names
