@@ -16,12 +16,11 @@ copynum.tree = flashClust(dist(copynum.matrix), method = "average")
 essentiality.tree = flashClust(dist(essentiality.matrix), method = "average")
 
 #Create a paired list of gene numbers and their heights in the dendogram
-#express.list <- express.tree[2:3]
-#Query the list by gene number
+#Query the list by gene number (example:)
 express.tree$height[which(express.tree$order==1967)]
 express.matrix$Description[which(rownames(express.matrix)=="1967")]
 
-#Save images of heirarchical cluster dendogrames
+#Save images of heirarchical cluster dendograms
 png(filename="~/GitHub/essentiality/DREAM/expresscluster.png")
 plot(express.tree, main = "Gene clustering based on expression", sub="", xlab="",cex.lab = 1.5,cex.axis = 1.5, cex.main = 2)
 dev.off()
