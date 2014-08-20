@@ -1,10 +1,24 @@
 #!/usr/bin/env R
 
-setwd("~")
-setwd("Desktop/DREAM/essentiality") # FIXME - need to read this from a config file
+nocfg <- function() {
+  example.filename = "ohsudream-config-example.R"
+  fh <- file(example.filename,"r")
+  nocfg.msg <- readChar(fh,file.info(example.filename)$size)
+  nocfg.msg <- paste("Please create a local config file that defines some local values, e.g:\n=========\n",nocfg.msg,sep="")
+  close(fh)
+  stop(nocfg.msg)
+}
 
-oldNames=as.character(system("ls DREAM/*.gct",intern=TRUE))
-trim <- function(filename) {substr(filename,7,nchar(filename))}
+tryCatch(source("ohsudream-config.R"),error = function(e) nocfg())
+
+#setwd(dream.wd)
+
+trimlength = nchar(dream.data.files.directory) + 2 # the dot and the slash add 2 more
+system.cmd = paste(dream.ls," ",dream.data.files.directory,"/*.gct",sep="")
+#print (system.cmd)
+
+oldNames=as.character(system(system.cmd,intern=TRUE))
+trim <- function(filename) {substr(filename,trimlength,nchar(filename))}
 
 
 
